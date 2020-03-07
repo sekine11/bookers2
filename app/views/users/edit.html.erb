@@ -12,9 +12,13 @@
 		    </ul>
 		    </div>
     <% end %>
-
+	
+	<%= f.label :name, "Name" %>
+	<%= f.text_field :name %><br>
+	<%= f.label :profile_image, "Image" %>
 	<%= f.attachment_field :profile_image %>
-	<%= f.text_area :introduction %>
+	<%= f.label :introduction, "Introduction" %>
+	<%= f.text_area :introduction %><br>
 	<%= f.submit 'Update User' %>
 
 <% end %>

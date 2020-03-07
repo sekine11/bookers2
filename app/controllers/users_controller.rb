@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action:authenticate_user!
+  before_action :ensure_correct_user, {only: [:edit, :update]}
   def show
   	@books = Book.all
   	@book = Book.new
@@ -23,6 +25,12 @@ class UsersController < ApplicationController
   end
 
   private
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    if current_user.id != @user.id
+      redirect_to user_path(current_user.id)
+    end
+  end
   def user_params
   	params.require(:user).permit(:profile_image, :introduction)
   end

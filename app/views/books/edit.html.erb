@@ -1,26 +1,30 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
-
+<div class='row'>
+<div class='col-md-6 col-md-offset-3'>
 <h1>Editing Book</h1>
-
 <%= form_for(@book) do |f| %>
 
-	<div class="field">
+	<div class="field row">
 		<%= f.label :title, "Title" %>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, class: "col-xs-12" %>
 	</div>
 
-	<div class="field">
-		<%= f.label :body, "Body" %>
-		<%= f.text_area :body %>
+	<div class="field row">
+		<%= f.label :body, "Opinion" %>
+		<%= f.text_area :body, class: "col-xs-12" %>
 	</div>
-
-	<%= f.submit 'Update Book' %>
+	
+	<div class="actions row">
+		<%= f.submit 'Update Book', class: "btn btn-primary col-xs-12" %>
+	</div>
 
 <% end %>
-
 <div class="links">
 	<span><%= link_to "show", book_path(@book) %></span>
 	<span>|</span>
 	<span><%= link_to "back", books_path %></span>
+</div>
+</div>
+<div class='col-md-3'></div>
+</div>
+</div>
 </div>
