@@ -1,0 +1,26 @@
+<h1>Books#edit</h1>
+<p>Find me in app/views/books/edit.html.erb</p>
+
+<h1>Editing Book</h1>
+
+<%= form_for(@book) do |f| %>
+
+	<div class="field">
+		<%= f.label :title, "Title" %>
+		<%= f.text_field :title %>
+	</div>
+
+	<div class="field">
+		<%= f.label :body, "Body" %>
+		<%= f.text_area :body %>
+	</div>
+
+	<%= f.submit 'Update Book' %>
+
+<% end %>
+
+<div class="links">
+	<span><%= link_to "show", book_path(@book) %></span>
+	<span>|</span>
+	<span><%= link_to "back", books_path %></span>
+</div>
