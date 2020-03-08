@@ -7,9 +7,21 @@
 
     <div class="btn-wrapper">
       <div class="row">
-         <p><%= link_to "Log in", new_user_session_path, class: "btn btn-info col-xs-10 col-xs-offset-1 sign_in" %></a></p>
+        <p>
+          <% if user_signed_in? %>
+          <%= link_to "Log in", user_path(current_user.id), class: "btn btn-info col-xs-10 col-xs-offset-1 sign_in" %>
+          <% else %>
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-info col-xs-10 col-xs-offset-1 sign_in" %>
+          <% end %>
+        </p>
       </div>
       <div class="row">
-        <p><%= link_to "Sign up", new_user_registration_path, class: "btn btn-success col-xs-10 col-xs-offset-1 sign_up" %></p>
+        <p>
+          <% if user_signed_in? %>
+          <%= link_to "Sign up", user_path(current_user.id), class: "btn btn-success col-xs-10 col-xs-offset-1 sign_up" %>
+          <% else %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success col-xs-10 col-xs-offset-1 sign_up" %>
+          <% end %>
+        </p>
       </div>
     </div>

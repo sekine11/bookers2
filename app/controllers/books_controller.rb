@@ -25,8 +25,6 @@ class BooksController < ApplicationController
       flash[:notice] = "You have creatad book successfully."
      	redirect_to book_path(@book.id)
     else
-      @book = Book.new
-      @user = User.find(current_user.id)
       @books = Book.all
       render "index"
     end
@@ -38,6 +36,7 @@ class BooksController < ApplicationController
       flash[:notice] = "You have updated book successfully."
       redirect_to book_path(@book.id)
     else
+      @books = Book.all
       render "index"
     end
   end
